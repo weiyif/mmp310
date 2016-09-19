@@ -1,0 +1,34 @@
+@import usl (https://fonts.googleapis.com/css?family=Kaushan+Script)
+    
+    @page{
+        margin:5cm;}
+
+ body{
+     color: #000;
+     font-family:gorgia,sans-serif;
+     font-size: 12px;
+     font-weight: normal;
+     margin: 0px;
+     padding: 0;
+ }
+h1,h2,h3,h4{
+    margin:0;
+    font-family: sans-serif;
+}
+P{
+    margin:0 0 1en 0;
+    font-size: .9em}
+
+a,a:visted{
+      color:inherit;
+    text-decoration: none;
+}
+nav{display: none;}
+ 
+header{position:relative:}
+
+header::after{
+    content:url{carousel/acebanner2.jpg);
+        width;90%;
+        
+    

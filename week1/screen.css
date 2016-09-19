@@ -1,0 +1,107 @@
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+
+body{
+    color:grey;
+    font-family: 'Kaushan Script', cursive;
+    font-size:16px;
+    margin:0px;
+    padding:0px;
+}
+h1{margin:0 0 1em 0;font-size:2.8em;font-weight:400;}
+h2{margin:0 0 .5em 0;font-size:1.6em;font-weight:400;line-height: 1.1em}
+h3{margin:0 0 .5em 0;font-size:1.3em;font-weight:400;color:#000;}
+h4{margin:0 0 1em 0;font-weight:400;}
+
+p{margin:0 0 1em 0}
+
+a{color: #007eff;}
+a:visited{color: #65b1ff;}
+
+a.btn:hover{background-color:rgba(0, 0, 0, 0.3);}
+a.btn{font-size: 1.2em; text-decoration: none; color:#fff; border:1px solid #fff;border:1px solid #fff;padding: 4px 15px;}
+
+header{height: 430px; background: url(carousel/banner_1200.jpg) no-repeat center bottom;margin:0px;position:relative}
+
+header a.logo{position:absolute; display:block; width:250px; height:73px; background:url(logo.svg) no-repeat 0 0 ; background-size:contain; top: 15px ; left :20px; z-index:1;}
+header a.logo span{display:none;} 
+header div.hero{width:42%; position:absolute; top:160px; left:55%; }
+header div.hero{line-height: 1em;margin:0 0 30px 0; color:#fff;}
+    
+/*navigation*/
+nav{background-color: rgba(0,0,0,.65);
+    position: absolute;
+    top:0px;
+    left:0px;
+    padding: 100px 0px 0px 0px;
+    width:100%;
+
+}
+
+nav a:visited {
+    color:#fff;
+}
+
+nav ul{
+    list-style: none;
+    margin: 0px;
+    padding:0px;
+}
+
+/*sub-menu hover effect*/
+nav ul li:hover{
+    background-color: #79131a;
+}
+nav ul li:hover>ul{
+    display:block;
+}
+nav ul li a{
+    display:inline-block;
+    color: #fff;
+    padding:10px 20px;
+    text-decoration:none;
+    width: 125px;
+    position: relative;
+}
+nav ul li a:hover{
+    background-color: #79131a;
+}
+
+nav ul ul{display:none; position:absolute; top:100%; background-color:#2b0306;}
+
+nav ul ul li{position: relative;}
+nav ul ul ul{left:100%; top:0;}
+
+/*level*/
+nav > ul{padding-left:200px;}
+nav > ul > li{float:left;}
+nav > ul > li > a {padding:10px 20px 15px 20px; width:auto;}
+
+@media  screen and (max-width:800px){
+        header{
+            height:300px;
+            background:  url(carousel/acebanner.jpg)
+        }
+                
+@media  screen and (max-width:640px){
+        header{
+            height:160px;
+            background:  url(carousel/acebanner.png)                
+        }
+    nav ul, nav ul ul {
+        display: block;
+    }
+
+    nav ul il a{
+                display:inlink-block;
+      }
+    
+        background-color: aqua;}
+    @media  screen and (max-width:425px){
+        header{
+            height:100px;
+            background:  url(carousel/acebanner4.jpg)                
+        }
+
+}
+    
+    
