@@ -1,0 +1,22 @@
+@import usl (https://fonts.googleapis.com/css?family=Kaushan+Script)
+    
+    @page{
+        margin:5cm;}
+body {
+    color:black;
+    background-color:azure;
+    font-family: "helvetica", sans-serif;
+     
+  
+}
+
+h1, h2{
+    font-family: "times", serif;
+}
+
+
+#container {
+    width:70%;
+    margin: auto;  
+}
+
