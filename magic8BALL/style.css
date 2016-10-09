@@ -1,0 +1,32 @@
+@import 'https://fonts.googleapis.com/css?family=Baloo+Da';
+
+
+input, button {
+  font-family: sans-serif;
+  font-size: 15px;
+
+}
+
+
+body {
+      background-image: url("http://file-sucai.sioe.cn/201101/8/1538566169.jpg");
+
+               margin: auto 0;
+    text-align: center;
+
+}
+
+h2 {
+    color: blue;
+}
+
+p{
+    color: blue;
+    font-family: 'Ruslan Display', cursive;
+    font-size: 34px;
+}
+
+img {
+    align-content: center;
+    margin: auto;
+}
