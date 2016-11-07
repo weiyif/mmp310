@@ -10,6 +10,8 @@
  <script src="main.js"></script>
 <script src="css.css"></script>
 <script type="text/javascript">
+<script> src="https://d3js.org/d3.v4.min.js"></script>
+<script>
 		var counter = 100;
 		var t;
 		var isTimeOn = false;
@@ -118,13 +120,174 @@ alert("jquery is running!");
     	 		});
     	 	    
     	 	</script>
-     <embed src="song/e.mp3"  width="0" height="0"
+     <embed src="song/Smile.mp3"  width="0" height="0"
  autostart="false"
  name="mysound"
  enablejavascript="true">	 	
  
+<meta charset="utf-8">
+
+
+<canvas width="960" height="500"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var canvas = d3.select("canvas").on("touchmove mousemove", moved).node(),
+    context = canvas.getContext("2d"),
+    width = canvas.width,
+    height = canvas.height;
+
+var sites = d3.range(100)
+    .map(function(d) { return [Math.random() * width, Math.random() * height]; });
+
+var voronoi = d3.voronoi()
+    .extent([[-1, -1], [width + 1, height + 1]]);
+
+redraw();
+
+function moved() {
+  sites[0] = d3.mouse(this);
+  redraw();
+}
+
+function redraw() {
+  var diagram = voronoi(sites),
+      links = diagram.links(),
+      polygons = diagram.polygons();
+
+  context.clearRect(0, 0, width, height);
+  context.beginPath();
+  drawCell(polygons[0]);
+  context.fillStyle = "#f00";
+  context.fill();
+
+  context.beginPath();
+  for (var i = 0, n = polygons.length; i < n; ++i) drawCell(polygons[i]);
+  context.strokeStyle = "#000";
+  context.stroke();
+
+  context.beginPath();
+  for (var i = 0, n = links.length; i < n; ++i) drawLink(links[i]);
+  context.strokeStyle = "rgba(0,0,0,0.2)";
+  context.stroke();
+
+  context.beginPath();
+  drawSite(sites[0]);
+  context.fillStyle = "#fff";
+  context.fill();
+
+  context.beginPath();
+  for (var i = 1, n = sites.length; i < n; ++i) drawSite(sites[i]);
+  context.fillStyle = "#000";
+  context.fill();
+  context.strokeStyle = "#fff";
+  context.stroke();
+}
+
+function drawSite(site) {
+  context.moveTo(site[0] + 2.5, site[1]);
+  context.arc(site[0], site[1], 2.5, 0, 2 * Math.PI, false);
+}
+
+function drawLink(link) {
+  context.moveTo(link.source[0], link.source[1]);
+  context.lineTo(link.target[0], link.target[1]);
+}
+
+function drawCell(cell) {
+  if (!cell) return false;
+  context.moveTo(cell[0][0], cell[0][1]);
+  for (var j = 1, m = cell.length; j < m; ++j) {
+    context.lineTo(cell[j][0], cell[j][1]);
+  }
+  context.closePath();
+  return true;
+}
+
+</script>
+<center>
+ <p id="answerContainer"></p>
+ <h1>input you unique information</h1>
+   <input id="name"placeholder="borough" /> 
+  
+   <input id ="email" placeholder="input email"/>
+   <select id="borough">
+   	<option>united states</option>
+   		<option>canada</option>
+   			<option>mexico</option>
+   				<option>other</option>
+   					<option>nowhere</option>
+   					<option>chinese</option>
+    
+   	
+   </select>
+      
+   
+
+   
+  <h2>what kind of nickname you want to call in the world</h2> 
+ <input id="nickname" type="text"placeholder="input nickname" /> 
  
+ <h2>what kind gender you want to be in the game</h2> 
+ <input id="manorwoman" type="text"placeholder="manorwoman" /> 
+ 
+ 
+ <h2>where do you live</h2>
+ 
+   <select id="borough">
+   	<option>manhattan</option>
+   		<option>brooklyn</option>
+   			<option>Queens</option>
+   				<option>bronx</option>
+   					<option>nowhere</option>
+   					<option>other</option>
+    </select>
+ <h2>
+ 	when is your birthday
+ </h2>
+ <select id="birthday">
+   	<option>january</option>
+   		<option>february</option>
+   			<option>march</option>
+   				<option>april</option>
+   					<option>may</option>
+   					<option>june</option>
+   					<option>july</option>
+   					<option>august</option>
+   					<option>september</option>
+   					<option>october</option>
+   					<option>novmber</option>
+   					<option>december</option>
+   	</select>				
+   					
+  <div id="message"></div>
+    <button id="submit">submit</button>
+    
+    <script type="text/javascript">
+    var submit = document.getElementById("submit");
+      submit.onclick = function() {
+      	 var name = document.getElementById("name").value;
+	    var nickname = document.getElementById("nickname").value;
+	   var email = document.getElementById("email").value;
+	    var borough = document.getElementById("borough").value;
+	    var birthday = document.getElementById("birthday").value;
+	    console.log(name, email);
+	    var message = document.getElementById("message");
+	     var manorwoman = document.getElementById("manorwoman").value;
+
+      var message = document.getElementById("message")
+	   	    
+	    message.innerHTML = "Hello " + name + "I know your are from "+
+	    borough + ", welcome to my website.I know you live in  in  I like your nickname,because it was easy to remenber and because we know your birthday will be come by soon so ,we will accept you to be our  first menber of our new game (obt) by that time remenber to check your gmaill because we will send your a account as soon as possiable  ";
+    };
+    
+	    
+    
+ 
+	   
+    
+  </script>
   			
-    	 	
+   </center>	 	
     </body>
 </html>
