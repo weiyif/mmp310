@@ -1,28 +1,24 @@
-
-<!--
-<!doctype html>
-AIzaSyAL6poQFFBdG8p6uUx8hftApWnZzbORP8w
--->
 <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="c.css">
+    <link rel="stylesheet" type="text/css" href="q.css">
     <meta charset="utf-8">
     <title>Places Searchbox</title>
     <style>
-      
-      
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
       #map {
-        height: 80%;
-        width: 80%;
+        height: 50%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
-        margin 0;
+        margin: 50;
         padding: 0;
       }
-      .controls {        
+      .controls {
         margin-top: 10px;
         border: 1px solid transparent;
         border-radius: 2px 0 0 2px;
@@ -32,6 +28,7 @@ AIzaSyAL6poQFFBdG8p6uUx8hftApWnZzbORP8w
         outline: none;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
+
       #pac-input {
         background-color: #fff;
         font-family: Roboto;
@@ -42,17 +39,21 @@ AIzaSyAL6poQFFBdG8p6uUx8hftApWnZzbORP8w
         text-overflow: ellipsis;
         width: 300px;
       }
+
       #pac-input:focus {
-        border-color: #23D7EB;
+        border-color: #4d90fe;
       }
+
       .pac-container {
         font-family: Roboto;
       }
+
       #type-selector {
         color: #fff;
         background-color: #4d90fe;
         padding: 5px 11px 0px 11px;
       }
+
       #type-selector label {
         font-family: Roboto;
         font-size: 13px;
@@ -61,48 +62,91 @@ AIzaSyAL6poQFFBdG8p6uUx8hftApWnZzbORP8w
       #target {
         width: 345px;
       }
+    
     </style>
   </head>
+  
+  
+  
   <body>
-  	<center><h3>name</h3></center>
-  	<center><input name="?" type="text"size="?"maxlength="?" /></center>
-  	<center><h3>password</h3></center>
-  	<center><input name="?" type="password"size="?"maxlength="?" /></center>
-  	<center><h4>please clikck on log in button </h4></center>
-  	<center><input  type="submit"value="log in"/></center>
+  	  <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div> 
+    <div class ="container">
+    <img src="image/img.png">
+    
+    
+  	<form name="login">
+    <div class="login">
+  			<input type="text" placeholder="enter usename"name="userid"> <br>
+  			<input type="password" placeholder="enter password" name="pswrd"> <br>
+  	         <input type="button" onclick="check(this.form)" value="login"/>
+   		  	</div>
+  	</form>
   	
-   <h1>Search the map beforto go </h1>
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+  	<script ="JavaScript">
+  	function check(form)
+  		 {
+  		 	if(form.userid.value =="decade" && form.pswrd.value == "123")
+  		 	{
+  		 		window.open('https://www.google.com/maps/@40.2354429,-75.2131661,8.21z')
+  		 	}
+  		 	else
+  		 	{
+  		 		alert("the username and password you enter dont match")
+  		 	}
+  		 }
+  	</script>
+  	  	
+  	
+  	
+  	
+  	
+  	
+  	
+   
     <div id="map"></div>
     <script>
-  
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
       function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.7187841, lng: -74.0140664},
-          zoom: 10,
+          center: {lat:40.7058316, lng: -74.2581941},
+          zoom: 13,
           mapTypeId: 'roadmap'
         });
+
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
           searchBox.setBounds(map.getBounds());
         });
+
         var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
+
           if (places.length == 0) {
             return;
           }
+
           // Clear out the old markers.
           markers.forEach(function(marker) {
             marker.setMap(null);
           });
           markers = [];
+
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
@@ -112,11 +156,12 @@ AIzaSyAL6poQFFBdG8p6uUx8hftApWnZzbORP8w
             }
             var icon = {
               url: place.icon,
-              size: new google.maps.Size(71, 71),
+              size: new google.maps.Size(35.6290847,124.8974071,6.99),
               origin: new google.maps.Point(0, 0),
               anchor: new google.maps.Point(17, 34),
               scaledSize: new google.maps.Size(25, 25)
             };
+
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
@@ -124,6 +169,7 @@ AIzaSyAL6poQFFBdG8p6uUx8hftApWnZzbORP8w
               title: place.name,
               position: place.geometry.location
             }));
+
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -134,8 +180,11 @@ AIzaSyAL6poQFFBdG8p6uUx8hftApWnZzbORP8w
           map.fitBounds(bounds);
         });
       }
+
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA5x4SBpOmYgAgjOPIejrmbp13jMTrcSs&callback=initAutocomplete"
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA5x4SBpOmYgAgjOPIejrmbp13jMTrcSs&callback=initAutocomplete"
          async defer></script>
   </body>
 </html>
+   
+  
